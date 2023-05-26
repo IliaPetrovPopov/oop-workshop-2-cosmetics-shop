@@ -20,6 +20,7 @@ export class Shampoo extends Product {
   constructor(name, brand, price, gender, milliliters, usage) {
     super(name, brand, price, gender);
     this.millilitersValidation(milliliters);
+    this.usageValidation(usage);
 
     this.#milliliters = milliliters;
     this.#usage = usage;
@@ -35,6 +36,16 @@ export class Shampoo extends Product {
     }
   }
 
+  /**
+   * Validation for usage.
+   * @param {string} usage Usage to check.
+   */
+  usageValidation(usage) {
+    if (!Usage.hasOwnProperty(usage)) {
+      throw new Error('Such usage doesn\'n exist!');
+    }
+  }
+  
   get usage() {
     return this.#usage;
   }
