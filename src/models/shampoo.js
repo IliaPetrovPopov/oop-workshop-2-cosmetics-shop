@@ -45,13 +45,19 @@ export class Shampoo extends Product {
       throw new Error('Such usage doesn\'n exist!');
     }
   }
-  
-  get usage() {
-    return this.#usage;
+
+  /**
+   * @type {number}
+   */
+  get milliliters() {
+    return this.#milliliters;
   }
 
-  print() {
-    return this.additionalInfo();
+  /**
+   * @type {Usage}
+   */
+  get usage() {
+    return this.#usage;
   }
 
   additionalInfo() {
