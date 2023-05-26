@@ -3,6 +3,7 @@ import { Gender } from './gender.js';
 
 export class Toothpaste extends Product {
 
+  /** Ingredients of toothpaste. */
   #ingredients;
 
   /**
@@ -31,14 +32,18 @@ export class Toothpaste extends Product {
       throw new Error('Ingredients must be string!');
     }
   }
+
+  /**
+   * @type {string}
+   */
   get ingredients() {
     return this.#ingredients;
   }
 
-  print() {
-    return this.additionalInfo();
-  }
-
+  /**
+   * @return {string}
+   */
   additionalInfo() {
+    return ` #Ingredients: ${this.ingredients}`;
   }
 }
