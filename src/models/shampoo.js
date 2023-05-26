@@ -19,22 +19,20 @@ export class Shampoo extends Product {
   */
   constructor(name, brand, price, gender, milliliters, usage) {
     super(name, brand, price, gender);
-
-    if (milliliters < Shampoo.#MIN_MILLILITERS) {
-      throw new Error(`Milliliters cannot be less than ${Shampoo.#MIN_MILLILITERS}`);
-    }
+    this.millilitersValidation(milliliters);
 
     this.#milliliters = milliliters;
-
-    if (!Usage.hasOwnProperty(usage)) {
-      throw new Error('Such usage type doesn\'t exist');
-    }
-
     this.#usage = usage;
   }
 
-  get milliliters() {
-    return this.#milliliters;
+  /**
+   * Validation for milliliters.
+   * @param {number} milliliters Milliliters to check.
+   */
+  millilitersValidation(milliliters) {
+    if (milliliters < Shampoo.#MIN_MILLILITERS) {
+      throw new Error('Milliliters cannot be negative number!');
+    }
   }
 
   get usage() {
