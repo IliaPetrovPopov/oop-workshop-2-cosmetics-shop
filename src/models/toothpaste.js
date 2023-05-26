@@ -22,16 +22,6 @@ export class Toothpaste extends Product {
    * @param {string} ingredients Ingredients to check.
    */
 
-  ingredientsValidation(ingredients) {
-    if (!ingredients) {
-      throw new Error('Cannot pass invalid value!');
-    }
-
-    if (typeof ingredients !== 'string') {
-      throw new Error('Ingredients must be string!');
-    }
-  }
-  
   get ingredients() {
     return this.#ingredients;
   }
