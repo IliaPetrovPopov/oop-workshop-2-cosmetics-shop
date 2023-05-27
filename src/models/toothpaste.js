@@ -15,6 +15,8 @@ export class Toothpaste extends Product {
   */
   constructor(name, brand, price, gender, ingredients) {
     super(name, brand, price, gender);
+    this.ingredientsValidation(ingredients);
+
     this.#ingredients = ingredients;
   }
 
