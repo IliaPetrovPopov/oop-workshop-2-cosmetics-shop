@@ -4,7 +4,10 @@ import { Gender } from './gender.js';
 
 export class Shampoo extends Product {
 
+  /** Milliliters of shampoo. */
   #milliliters;
+
+  /** Usage for shampoo. */
   #usage;
 
   static #MIN_MILLILITERS = 0;
@@ -60,6 +63,11 @@ export class Shampoo extends Product {
     return this.#usage;
   }
 
+  /**
+   * @return {string}
+   */
   additionalInfo() {
+    return ` #Milliliters: ${this.#milliliters}\n` +
+           ` #Usage: ${this.#usage}`;
   }
 }
