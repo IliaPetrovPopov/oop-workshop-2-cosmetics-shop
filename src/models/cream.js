@@ -2,6 +2,8 @@ import { Product } from './product.js';
 import { Scent } from './scent.js';
 
 export class Cream extends Product {
+  /** Scent of cream. */
+    #scent;
 
     static #MIN_SYMBOLS = 3;
     static #MAX_SYMBOLS = 15;
@@ -16,7 +18,7 @@ export class Cream extends Product {
 
     constructor(name, brand, price, gender, scent) {
       super(name, brand, price, gender);
-
+      this.scentValidation(scent);
     }
 
     /**
@@ -51,6 +53,17 @@ export class Cream extends Product {
      * Validation for scent.
      * @param {string} newScent Scent to validate
      */
+    scentValidation(newScent) {
+      if (!newScent) {
+        throw new Error('Invalid scent!');
+      }
+
+      if (typeof newScent !== 'string') {
+        throw new Error('Scent always must be string!');
+      }
+
+      this.#scent = newScent;
+    }
 
     /**
      * @type {Scent}
