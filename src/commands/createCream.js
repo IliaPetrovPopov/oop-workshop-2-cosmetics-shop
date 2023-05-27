@@ -1,0 +1,21 @@
+import { ApplicationData } from '../core/applicationData.js';
+import { try_parse_float, validateParamsCount } from './validationHelpers.js';
+
+export class CreateCreamCommand {
+    #params;
+    #appData;
+
+    /**
+    * @param {string[]} params
+    * @param {ApplicationData} appData
+    */
+
+    constructor(params, appData) {
+      validateParamsCount(params, 5);
+
+      this.#params = params;
+      this.#appData = appData;
+    }
+
+
+}
