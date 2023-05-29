@@ -17,5 +17,11 @@ export class CreateCreamCommand {
       this.#appData = appData;
     }
 
+    execute() {
+      const [name, brand, price, gender, scent] = this.#params;
 
+      this.#appData.createCream(name, brand, try_parse_float(price), gender, scent);
+
+      return `Cream with name ${name} was created!`;
+    }
 }
