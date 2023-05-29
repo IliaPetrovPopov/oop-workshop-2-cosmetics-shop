@@ -13,10 +13,6 @@ export class CreateToothpasteCommand {
     constructor(params, appData) {
       validateParamsCount(params, 5);
 
-      // try_parse_int(params);
-
-      // try_parse_float(params);
-
       this.#params = params;
       this.#appData = appData;
     }
